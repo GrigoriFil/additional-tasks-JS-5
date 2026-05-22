@@ -1,263 +1,265 @@
 /*
-TODO: Аналіз покупок.
+TODO: Метод forEach().
 TODO:
-TODO: Є об'єкт products, який представляє покупки користувача в онлайн-магазині.
-TODO: 1. Виведе у консоль повідомлення про кожен товар у форматі. (Користувач купив 5 одиниць товару apple).
-TODO: 2. Порахуйте загальну кількість всіх куплених товарів.
-TODO: 3. Створи новий масив із назвами лише тих товарів, яких було куплено 2 або більше одиниць.
+TODO: Виведи всі елементи масиву з індексами.
 */
 
-// const products = {
-//   apple: 5,
-//   banana: 2,
-//   orange: 4,
-//   mango: 0,
-//   pineapple: 1,
-// };
-
-//~ 1.
-
-// const productsKeys = Object.keys(products);
+// const fruits = ['apple', 'banana', 'cherry'];
 //
-// console.log(products);
-// console.log(productsKeys);
+// console.log(fruits);
 //
-// for (const key of productsKeys) {
-//   console.log(`Користувач купив ${products[key]} одиниць товару ${key}`);
-// }
-
-//~ 2.
-
-// const productsValues = Object.values(products);
-//
-// console.log(products);
-// console.log(productsValues);
-//
-// let totalProduct = 0;
-//
-// for (const value of productsValues) {
-//   totalProduct += value;
-// }
-//
-// console.log(totalProduct);
-
-//~ 3.
-
-// const productsKeys = Object.keys(products);
-// const productsNames = [];
-//
-// console.log(products);
-// console.log(productsKeys);
-//
-// for (const key of productsKeys) {
-//   if (products[key] >= 2) {
-//     productsNames.push(key);
-//   }
-// }
-//
-// console.log(productsNames);
+// fruits.forEach((fruit, index, fruits) => {
+//   console.log(`${index}: ${fruit} `);
+// });
 
 /*
-TODO: Методи для виводу інформації про товар.
+TODO: Метод map().
 TODO:
-TODO: Створи об'єкт product з властивостями title, price, category.
-TODO: Додай метод getInfo(), який повертає рядок типу: `Товар: {title}, Категорія: {category}, Ціна: {price} грн`
+TODO: Створи новий масив, у якому всі числа подвоєні.
 */
 
-// const product = {
-//   title: 'Товар 1',
-//   price: 10000,
-//   category: 'електроніка',
+// const nums = [1, 2, 3];
 //
-//   getInfo() {
-//     return `Товар: ${this.title}, Категорія: ${this.category}, Ціна: ${this.price} грн`;
-//   },
-// };
+// const doubleNumbers = nums.map(el => el * 2);
 //
-// console.log(product);
+// //Або
+// // const doubleNumbers = nums.map(el =>{
+// //   return el * 2;
+// // });
 //
-// console.log(product.getInfo());
+// console.log(nums);
+// console.log(doubleNumbers);
+
 
 /*
-TODO: Створення методу в об'єкті.
+TODO: Метод filter()
 TODO:
-TODO: Створи об'єкт user з властивостями firstName, lastName та age, а також методом getFullname().
-TODO: Метод має повертати повне ім'я користувача.
+TODO: Відфільтруй користувачів віком від 18 років.
 */
 
-// const user = {
-//   firstName: 'Glen',
-//   lastName: 'Riley',
-//   age: 30,
+// const users = [
+//   {firstName: 'Ira', age: 17},
+//   {firstName: 'Max', age: 22},
+//   {firstName: 'Bobby', age: 28},
+//   {firstName: 'Anthony', age: 15},
+// ];
 //
-//   getFullName() {
-//     return `${this.firstName} ${this.lastName}`
-//   },
-// };
+// const filteredUsers = users.filter(el => el.age >= 18);
 //
+// //Або
+// // const filteredUsers = users.filter(el => {
+// //   return el.age >= 18;
+// // });
+//
+// console.table(users);
+// console.table(filteredUsers);
+
+/*
+TODO: Метод find().
+TODO:
+TODO: Знайди користувача з email 'test@example.com'.
+*/
+
+// const users = [
+//   {firstName: 'Ann', email: 'ann@gmail.com'},
+//   {firstName: 'Test', email: 'test@example.com'},
+// ];
+//
+// const user = users.find(el => el.email === 'test@example.com');
+//
+// //Або
+// // const user = users.find((el, ind, arr) => {
+// //   return el.email === 'test@example.com';
+// // });
+//
+// console.table(users);
 // console.log(user);
-// console.log(user.getFullName());
 
 /*
-TODO: Метод для додавання друзів.
+TODO: Метод some().
 TODO:
-TODO: Є об'єкт user з масивом friends.
-TODO: Додай наступні методи:
-TODO: - addFriend(friendName) - додає ім'я в список друзів.
-TODO: - removeFriend(friendName) - видаляє ім'я із списку друзів
+TODO: Чи є серед товарів хоча б один з нульовою кількістю на складі?
 */
 
-// const user = {
-//   friends: ['Claudia', 'Justin', 'Ada', 'Lilly'],
+// const stock = [
+//   {title: 'Monitor', quantity: 5},
+//   {title: 'Keyboard', quantity: 0},
+// ];
 //
-//   addFriend(friendName) {
-//     if (friendName === '') {
-//       return;
-//     }
+// const isSomeProductOutOfStock = stock.some(el => el.quantity === 0);
 //
-//     this.friends.push(friendName);
-//   },
-//   removeFriend(friendName) {
-//     const indexOfFriendName = this.friends.indexOf(friendName);
+// //Або
+// // const isSomeProductOutOfStock = stock.some((el, ind, arr) => {
+// //   return el.quantity === 0;
+// // });
 //
-//     if (indexOfFriendName === -1 ) {
-//       console.log(`${friendName} не знайдено!`);
 //
-//       return;
-//     }
+// console.table(stock);
+// console.log(isSomeProductOutOfStock);
+
+/*
+TODO: Метод every().
+TODO:
+TODO: Перевір, чи всі студенти склали тест (score > 50).
+*/
+
+// const students = [
+//   {firstName: 'Ivan', score: 78},
+//   {firstName: 'Oksana', score: 91},
+//   {firstName: 'Pavlo', score: 43},
+// ];
 //
-//     this.friends.splice(indexOfFriendName, 1);
-//   },
+// const isAllStudentsApproved = students.every(el => el.score > 50);
+//
+// //Або
+// // const isAllStudentsApproved = students.every((el, id, arr) => {
+// //   return el.score > 50;
+// // });
+//
+// console.table(students);
+// console.log(isAllStudentsApproved);
+
+/*
+TODO: Метод reduce().
+TODO:
+TODO: Порахуй загальну вартість товарів у кошику.
+*/
+
+/*
+1 Ітерація
+acc = 0;
+el = {title: 'Book', price: 12, quantity: 2};
+idx = 0;
+arr = cart;
+
+return acc + el.price * el.quantity; //((0 + 12 * 2) = 24)
+
+2 Ітерація
+acc = 24;
+el = {title: 'Pen', price: 3, quantity: 4};
+idx = 1;
+arr = cart;
+
+return acc + el.price * el.quantity; //((24 + 3 * 4) = 36)
+*/
+
+// const cart = [
+//   {title: 'Book', price: 12, quantity: 2},
+//   {title: 'Pen', price: 3, quantity: 4},
+// ];
+//
+// const totalPrice = cart.reduce((acc, el) => acc + el.price * el.quantity, 0);
+//
+// //Або
+// // const totalPrice = cart.reduce((acc, el, ind, arr) => {
+// //   return acc + el.price * el.quantity;
+// // }, 0);
+//
+//
+// console.table(cart);
+// console.log(totalPrice);
+
+/*
+TODO: Метод map().
+TODO:
+TODO: Створи функцію addBonus(employees).
+TODO: Функція має для кожного працівника додати нову властивість bonus, яка дорівнює 10% від зарплати, якщо стаж > 5 років.
+*/
+
+
+// const addBonus = employees => {
+//   return employees.map(el => {
+//     el.bonus = el.experience > 5 ? el.salary * 0.1 : 0;
+//
+//     return el;
+//   });
 // };
 //
-// console.log(user.friends);
+// //Або
+// // const addBonus = employees => {
+// //   return employees.map((el, idx, arr) => {
+// //       el.bonus = el.experience > 5 ? el.salary * 0.1 : 0;
+// //
+// //       return el;
+// //   });
+// // };
 //
-// user.addFriend('Clarence');
-// user.addFriend('');
-//
-// console.log(user.friends);
-//
-// user.removeFriend('Justin');
-// user.removeFriend('sdf');
-//
-// console.log(user.friends);
-
-
-/*
-const friends = ['Claudia', 'Justin', 'Ada', 'Lilly'];
-
-const indexOfFriend = friends.indexOf('Justin');
-
-console.log(friends);
-
-friends.splice(indexOfFriend, 1);
-
-console.log(friends);
-*/
-
-
-/*
-TODO: Методи для роботи з корзиною товарів.
-TODO:
-TODO: Є об'єкт cart. У властивості items зберігається масив з товарами.
-TODO: Додай наступні методи в об'єкт:
-TODO: - changeQuantity(productName, value) - змінює кількість товару у кошику.
-TODO: - getTotalPrice() - повертає загальну суму товарів у кошику.
-*/
-
-// const cart = {
-//   items: [
-//     {title: 'Хліб', price: 25, quantity: 3},
-//     {title: 'Молоко', price: 30, quantity: 2},
-//   ],
-//
-//   changeQuantity(productName, value) {
-//     productName = productName.toLowerCase();
-//
-//     for (const product of this.items) {
-//       if (product.title.toLowerCase() === productName) {
-//         product.quantity += value;
-//
-//         return;
-//       }
-//     }
-//   },
-//
-//   getTotalPrice() {
-//     let totalPrice = 0;
-//
-//     for (const product of this.items) {
-//       totalPrice += product.price * product.quantity;
-//     }
-//     return totalPrice;
-//   },
-// };
-//
-// console.table(cart.items);
-//
-// cart.changeQuantity('Хліб', 2);
-// console.log(cart.getTotalPrice());
-//
-// console.table(cart.items);
-
-/*
-TODO: Пошук за значенням.
-TODO:
-TODO: Напиши функцію findByName(users, userName), яка шукає об'єкт у масиві за полем name/
-*/
-
-// const findByName = function(users, userName) {
-//   userName = userName.toLowerCase();
-//   console.table(users);
-//
-//   for (const user of users) {
-//     if (user.firstName.toLowerCase() === userName) {
-//       return user;
-//     }
-//   }
-// };
-//
-// console.log(
-//   findByName(
-//     [
-//       { firstName: 'Allen', age: 30, gender: 'male' },
-//       { firstName: 'Theresa', age: 20, gender: 'female' },
-//       { firstName: 'Josephine', age: 25, gender: 'female' },
-//       { firstName: 'Max', age: 40, gender: 'male' },
-//       { firstName: 'Phillip', age: 23, gender: 'male' },
-//     ],
-//     'Max'
-//   )
+// console.table(
+//   addBonus([
+//     {firstName: 'Fred', salary: 1000, experience: 6},
+//     {firstName: 'Jose', salary: 800, experience: 3},
+//   ])
 // );
 
 /*
-TODO: Фільтрація об'єктів у масиві
+TODO: Сортування товарів за кількістю коментарів
 TODO:
-TODO: Напиши функцію filterProductsByPrice(products, threshold), яка буде приймати масив об'єктів з товарами.
-TODO: Функція має повертати лише ті, в яких ціна менше ніж параметр threshold.
+TODO: Створи функцію sortByDescendingCommentsCount(product).
+TODO: Функція має повертати масив з товарами відсортованих за кількістю коментарів.
 */
 
-
-// const filterProductsByPrice = function (products, threshold) {
+// const sortByDescendingCommentsCount = products => {
 //   console.table(products);
-//   const filteredProducts = [];
 //
-//   for (const product of products) {
-//     if (product.price < threshold) {
-//       filteredProducts.push(product);
-//     }
-//   }
-//
-//   return filteredProducts;
+//   return products.toSorted((productA, productB) => {
+//     return productA.comments.length - productB.comments.length; //(більше => менше productB.comments.length - productA.comments.length
+//   });
 // };
 //
-//
-// console.log(
-//   filterProductsByPrice([
-//     {title: 'Товар 1', price: 50},
-//     {title: 'Товар 2', price: 150},
-//     {title: 'Товар 3', price: 80},
-//   ],
-//     100
-//     )
+// console.table(
+//   sortByDescendingCommentsCount([
+//     {
+//       name: 'Ноутбук',
+//       price: 27000,
+//       comments: [
+//         { description: 'comment 1', rating: 4 },
+//         { description: 'comment 2', rating: 3.5 },
+//         { description: 'comment 3', rating: 4 },
+//       ],
+//     },
+//     {
+//       name: 'Смартфон',
+//       price: 19000,
+//       comments: [
+//         { description: 'comment 1', rating: 4 },
+//         { description: 'comment 2', rating: 5 },
+//       ],
+//     },
+//     {
+//       name: 'Планшет',
+//       price: 14000,
+//       comments: [
+//         { description: 'comment 1', rating: 4 },
+//         { description: 'comment 2', rating: 3.5 },
+//         { description: 'comment 3', rating: 4 },
+//         { description: 'comment 4', rating: 4.5 },
+//       ],
+//     },
+//     {
+//       name: 'Монітор',
+//       price: 8500,
+//       comments: [{ description: 'comment 1', rating: 3 }],
+//     },
+//   ])
 // );
+
+
+/*
+TODO: Методи filter() та map()
+TODO:
+TODO: Створити функцію getStudentsWithHighScore(allStudents).
+TODO: Функція буде повертати масив імен студентів, які мають середній бал > 85.
+*/
+
+// const getStudentsWithHighScore = allStudents => {
+//   return allStudents.filter(student => student.averageScore > 85).map(student => student.firstName);
+// };
+//
+// const students = [
+//   {firstName: 'Olha', averageScore: 90},
+//   {firstName: 'Ivan', averageScore: 75},
+//   {firstName: 'Svitlana', averageScore: 88},
+// ];
+//
+// console.table(students);
+// console.log(getStudentsWithHighScore(students)); //['Olha', 'Svitlana']
